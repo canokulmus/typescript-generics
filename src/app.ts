@@ -89,3 +89,26 @@ numberStorage.addItem(2);
 numberStorage.removeItem(1);
 console.log(numberStorage.getItems());
 
+
+//generic utility types
+
+interface CourseGoal {
+    title: string;
+    description: string;
+    completeUntil: Date;
+}
+
+//partial type is make all properties optional
+function createCourseGoal(title: string, description: string, date: Date): CourseGoal {
+    let courseGoal: Partial<CourseGoal> = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal as CourseGoal;
+}
+
+
+//read only type 
+const sampleNames: Readonly<string[]> = ['John', 'Jane', 'Mary'];
+
+
